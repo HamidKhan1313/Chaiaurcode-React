@@ -24,3 +24,9 @@ git init ---> to go through gethub
  git checkout -b feature1 ---> to switch to a new branch 
  git checkout main ---> to again switch to main branch
  git branch -d <branch name> --> to delete branch / also we cannot delete branch in which we stayed
+ git reset --> to delete changes on file
+ git reset Head~1 ---> to reset head for one step
+ git log --> to check all commits
+ q --> is use for quite
+ git reset <commit hash>  --> to go to directly of those commit/ when we use git log it give us yellow line code which is hash of commit 
+ git reset --hard --> to change as well in vs code 
