@@ -1,14 +1,9 @@
 
 import logo from './logo.svg';
-
-import Chai from './libs/Chai'; // Case must match file name.
-
-
-
-
+import Chai from './libs/chai';
+import chai from "@basicreact/chai.js";
 
 <img src={logo} alt="logo" />
-
 
 function App() {
   return (
