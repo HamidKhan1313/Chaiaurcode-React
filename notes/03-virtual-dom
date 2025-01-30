@@ -1,0 +1,18 @@
+https://github.com/acdlite/react-fiber-architecture
+
+important point :- reconcilation is the algorithm behind what is popularity understood as the " virtual dom"
+
+for interview prespective :- Diffing of list is perform using keys. Keys should be stable predective and unique
+
+in link above mention :-
+
+key points are important to understand
+structure of fibre :-
+
+It is understand when we complete react
+Reconsiliation :-
+
+Its a recursive agorithm which reconsider the react elements which can be changed or updated.
+The algorithm React use to diff one tree with another to determine which part to need to be change.
+In react there are two differentiation trees one is actual browser tree that is Dom and other is react tree that come from create root.
+Update :- A change in data use to render app. Usually the result of set state result in re-render

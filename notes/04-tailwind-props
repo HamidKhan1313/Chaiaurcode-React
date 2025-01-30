@@ -1,0 +1,9 @@
+install vite project -------> cdtailwaindprops 
+install npm ----------------> npm i / npm install
+ run project ----------------> npm run dev 
+ install tailwind ----------->npm install tailwindcss @tailwindcss/vite
+  import tailwind ------------>import tailwindcss from '@tailwindcss/vite'
+   index.css location---------->@import "tailwindcss;
+    run vite project ----------->npm run dev
+     props ---------------------> make the component reusible 
+     extention install ---------> react snippets
