@@ -1,30 +1,43 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useRef, useEffect } from 'react';
 
 function App() {
   const [length, setLength] = useState(12);
   const [numberAllowed, setNumberAllowed] = useState(false);
   const [charAllowed, setCharAllowed] = useState(false);
   const [password, setPassword] = useState('');
+  
+  const passwordRef = useRef(password);  // Reference to the password
+  const lengthRef = useRef(length);  // Reference to password length
+  const numberAllowedRef = useRef(numberAllowed);  // Reference to numberAllowed
+  const charAllowedRef = useRef(charAllowed);  // Reference to charAllowed
+  
+  // Synchronize the refs with state
+  useEffect(() => {
+    passwordRef.current = password;
+    lengthRef.current = length;
+    numberAllowedRef.current = numberAllowed;
+    charAllowedRef.current = charAllowed;
+  }, [password, length, numberAllowed, charAllowed]);
 
   const passwordGenerator = useCallback(() => {
     let pass = '';
     let str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-    
+
     // Add numbers and special characters if allowed
-    if (numberAllowed) str += '0123456789';
-    if (charAllowed) str += '!@$%^&*~``()_+=?/<>|{}[]';
+    if (numberAllowedRef.current) str += '0123456789';
+    if (charAllowedRef.current) str += '!@$%^&*~``()_+=?/<>|{}[]';
 
     // Generate password
-    for (let i = 0; i < length; i++) {
+    for (let i = 0; i < lengthRef.current; i++) {
       const randomIndex = Math.floor(Math.random() * str.length);  // Random index within string length
       pass += str.charAt(randomIndex);  // Append the random character to the password
     }
 
     setPassword(pass);
-  }, [length, numberAllowed, charAllowed]);
+  }, []);
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(password);  // Copy password to clipboard
+    navigator.clipboard.writeText(passwordRef.current);  // Copy password to clipboard
     alert('Password copied to clipboard!');
   };
 
